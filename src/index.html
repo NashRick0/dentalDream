@@ -4,63 +4,277 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>dentalDream</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-profundo: #0E4D64;
+      --menta: #E3F4F1;
+      --aqua: #2BB3A3;
+      --ambar: #F2A65A;
+      --tinta: #1E2A32;
+      --gris: #5A6E78;
+      --blanco: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Nunito", "Segoe UI", Arial, sans-serif;
+      color: var(--tinta);
+      background: var(--blanco);
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Encabezado */
+    .barra {
+      background: var(--azul-profundo);
+      color: var(--blanco);
+      padding: 16px 0;
+    }
+    .barra .contenedor {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    .barra nav a {
+      color: var(--menta);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+    .barra nav a:hover { color: var(--blanco); }
+
+    /* Presentación */
+    .portada {
+      background: var(--menta);
+      padding: 64px 0;
+    }
+    .portada .contenedor {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .portada h2 {
+      font-size: 2.6rem;
+      line-height: 1.15;
+      margin: 0 0 16px;
+      color: var(--azul-profundo);
+      font-weight: 800;
+    }
+    .portada p {
+      font-size: 1.1rem;
+      margin: 0 0 14px;
+      max-width: 34em;
+    }
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .boton {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 14px 30px;
+      background: var(--aqua);
+      color: var(--blanco);
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border-radius: 999px;
+    }
+    .boton:hover { background: var(--azul-profundo); }
+    .boton:focus-visible {
+      outline: 3px solid var(--ambar);
+      outline-offset: 3px;
+    }
+
+    /* Beneficios */
+    .beneficios { padding: 64px 0; }
+    .beneficios h3,
+    .contacto h3 {
+      font-size: 1.8rem;
+      color: var(--azul-profundo);
+      margin: 0 0 12px;
+    }
+    .beneficios .intro {
+      max-width: 40em;
+      color: var(--gris);
+      margin: 0 0 32px;
+    }
+    .lista-beneficios {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 40px;
+    }
+    .lista-beneficios li {
+      border-left: 4px solid var(--aqua);
+      padding-left: 18px;
+    }
+    .lista-beneficios strong {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--tinta);
+    }
+
+    /* Llamado a la acción */
+    .invitacion {
+      background: var(--azul-profundo);
+      color: var(--blanco);
+      text-align: center;
+      padding: 56px 0;
+    }
+    .invitacion p {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0 0 8px;
+    }
+
+    /* Contacto */
+    .contacto { padding: 64px 0; }
+    .datos-contacto {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .datos-contacto div {
+      background: var(--menta);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .datos-contacto span {
+      display: block;
+      font-weight: 800;
+      color: var(--azul-profundo);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--gris);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--menta);
+    }
+
+    /* Celular */
+    @media (max-width: 760px) {
+      .portada .contenedor,
+      .lista-beneficios,
+      .datos-contacto { grid-template-columns: 1fr; }
+      .portada h2 { font-size: 2rem; }
+      .barra nav { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>dentalDream</h1>
-    <h2>Cada paciente, cada diente, cada cita en su lugar.</h2>
+  <header class="barra">
+    <div class="contenedor">
+      <h1 class="logo">dentalDream</h1>
+      <nav>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- Banner: arcada dental con una pieza señalada -->
-    <svg viewBox="0 0 520 170" width="520" role="img" aria-label="Fila de dientes con la pieza 26 marcada por caries">
-      <defs>
-        <path id="diente" d="M6 6 Q20 -2 34 6 Q38 18 33 28 L30 46 Q27 52 24 44 L20 32 L16 44 Q13 52 10 46 L7 28 Q2 18 6 6 Z"/>
-      </defs>
-      <rect width="520" height="170" rx="18" fill="#E3F4F1"/>
-      <g stroke="#0E4D64" stroke-width="2.5" stroke-linejoin="round">
-        <use href="#diente" x="40"  y="40" fill="#FFFFFF"/>
-        <use href="#diente" x="95"  y="40" fill="#FFFFFF"/>
-        <use href="#diente" x="150" y="40" fill="#FFFFFF"/>
-        <use href="#diente" x="205" y="40" fill="#FFFFFF"/>
-        <use href="#diente" x="260" y="40" fill="#FFFFFF"/>
-        <use href="#diente" x="315" y="40" fill="#F2A65A"/>
-        <use href="#diente" x="370" y="40" fill="#FFFFFF"/>
-        <use href="#diente" x="425" y="40" fill="#FFFFFF"/>
-      </g>
-      <text x="335" y="125" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#0E4D64">Pieza 26: caries</text>
-      <text x="335" y="147" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#3C5A66">Cita: jueves 10:30</text>
-    </svg>
+    <section class="portada">
+      <div class="contenedor">
+        <div>
+          <h2>Cada paciente, cada diente, cada cita en su lugar.</h2>
+          <p>dentalDream es un sistema para consultorios dentales que reúne en un solo lugar
+             los datos de tus pacientes, los problemas dentales que presentan, la pieza o zona
+             de la boca donde se encuentran y la agenda de sus citas.</p>
+          <p>Antes de que el paciente se siente en el sillón, ya sabrás quién es, qué tiene
+             y en dónde.</p>
+          <a href="#contacto" class="boton">Comienza ahora</a>
+        </div>
 
-    <section>
-      <p>dentalDream es un sistema para consultorios dentales que reúne en un solo lugar
-         los datos de tus pacientes, los problemas dentales que presentan, la pieza o zona
-         de la boca donde se encuentran y la agenda de sus citas.</p>
-      <p>Antes de que el paciente se siente en el sillón, ya sabrás quién es, qué tiene
-         y en dónde.</p>
+        <!-- Banner: arcada dental con una pieza señalada -->
+        <svg class="banner" viewBox="0 0 520 170" role="img" aria-label="Fila de dientes con la pieza 26 marcada por caries">
+          <defs>
+            <path id="diente" d="M6 6 Q20 -2 34 6 Q38 18 33 28 L30 46 Q27 52 24 44 L20 32 L16 44 Q13 52 10 46 L7 28 Q2 18 6 6 Z"/>
+          </defs>
+          <rect width="520" height="170" rx="18" fill="#FFFFFF"/>
+          <g stroke="#0E4D64" stroke-width="2.5" stroke-linejoin="round">
+            <use href="#diente" x="40"  y="40" fill="#FFFFFF"/>
+            <use href="#diente" x="95"  y="40" fill="#FFFFFF"/>
+            <use href="#diente" x="150" y="40" fill="#FFFFFF"/>
+            <use href="#diente" x="205" y="40" fill="#FFFFFF"/>
+            <use href="#diente" x="260" y="40" fill="#FFFFFF"/>
+            <use href="#diente" x="315" y="40" fill="#F2A65A"/>
+            <use href="#diente" x="370" y="40" fill="#FFFFFF"/>
+            <use href="#diente" x="425" y="40" fill="#FFFFFF"/>
+          </g>
+          <text x="335" y="125" text-anchor="middle" font-family="Nunito, sans-serif" font-size="15" font-weight="700" fill="#0E4D64">Pieza 26: caries</text>
+          <text x="335" y="147" text-anchor="middle" font-family="Nunito, sans-serif" font-size="13" fill="#5A6E78">Cita: jueves 10:30</text>
+        </svg>
+      </div>
     </section>
 
-    <section>
-      <h3>¿Por qué usar dentalDream?</h3>
-      <p>En muchos consultorios las citas viven en una libreta, en mensajes de WhatsApp o en
-         la memoria de alguien. Eso provoca horarios empalmados, pacientes que no llegan y
-         consultas que empiezan sin saber qué tiene el paciente. dentalDream ordena todo eso.</p>
+    <section class="beneficios" id="beneficios">
+      <div class="contenedor">
+        <h3>¿Por qué usar dentalDream?</h3>
+        <p class="intro">En muchos consultorios las citas viven en una libreta, en mensajes de
+           WhatsApp o en la memoria de alguien. Eso provoca horarios empalmados, pacientes que
+           no llegan y consultas que empiezan sin saber qué tiene el paciente. dentalDream
+           ordena todo eso.</p>
 
-      <ul>
-        <li><strong>Ficha completa del paciente:</strong> nombre, teléfono, alergias y
-            antecedentes, listos antes de cada consulta.</li>
-        <li><strong>Problemas ubicados en la boca:</strong> registra cada caries, fractura o
-            tratamiento en la pieza exacta donde está.</li>
-        <li><strong>Agenda sin empalmes:</strong> asigna citas en horarios libres y ve el
-            día completo de un vistazo.</li>
-        <li><strong>Historial a la mano:</strong> consulta qué se le hizo al paciente en
-            visitas anteriores y qué sigue en su tratamiento.</li>
-      </ul>
+        <ul class="lista-beneficios">
+          <li><strong>Ficha completa del paciente</strong>
+              Nombre, teléfono, alergias y antecedentes, listos antes de cada consulta.</li>
+          <li><strong>Problemas ubicados en la boca</strong>
+              Registra cada caries, fractura o tratamiento en la pieza exacta donde está.</li>
+          <li><strong>Agenda sin empalmes</strong>
+              Asigna citas en horarios libres y ve el día completo de un vistazo.</li>
+          <li><strong>Historial a la mano</strong>
+              Consulta qué se le hizo al paciente en visitas anteriores y qué sigue en su tratamiento.</li>
+        </ul>
+      </div>
     </section>
 
-    <section>
-      <p><strong>Deja atrás la libreta de citas. Conoce dentalDream y organiza tu consultorio desde hoy.</strong></p>
+    <section class="invitacion">
+      <div class="contenedor">
+        <p>Deja atrás la libreta de citas.</p>
+        <p>Conoce dentalDream y organiza tu consultorio desde hoy.</p>
+        <a href="#contacto" class="boton">Conoce más</a>
+      </div>
+    </section>
+
+    <section class="contacto" id="contacto">
+      <div class="contenedor">
+        <h3>Contacto</h3>
+        <p>¿Quieres probar dentalDream en tu consultorio? Escríbenos.</p>
+        <div class="datos-contacto">
+          <div><span>Teléfono</span>618 555 0142</div>
+          <div><span>Correo</span>hola@dentaldream-demo.com</div>
+          <div><span>Dirección</span>Av. Sonrisas 128, Col. Centro, Durango, Dgo.</div>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer>
+    © 2026 dentalDream. Proyecto escolar con información ficticia.
+  </footer>
 </body>
 </html>
