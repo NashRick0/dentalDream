@@ -1,0 +1,19 @@
+Nombre del proyecto:
+dentalDream
+
+Problema:
+En muchos consultorios dentales las citas se agendan en libretas, mensajes o llamadas,
+lo que provoca olvidos, horarios empalmados y pérdida de información del paciente.
+Además, el dentista no siempre tiene a la mano los datos del cliente ni el historial
+de sus problemas dentales antes de atenderlo.
+
+Objetivo:
+Desarrollar un sistema que permita registrar a los pacientes, documentar sus problemas
+dentales y la zona donde se presentan, y asignarles citas de forma organizada.
+
+Descripción:
+dentalDream es un sistema de gestión de citas para consultorios dentales. Permite al
+dentista registrar los datos personales de cada paciente, anotar los problemas que
+presenta y en qué pieza o zona de la boca se encuentran, y programar sus citas en un
+calendario. Así el dentista cuenta con toda la información del paciente en un solo
+lugar y puede organizar mejor su agenda.
